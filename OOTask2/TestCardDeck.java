@@ -70,9 +70,9 @@ public class TestCardDeck {
         System.out.print("100%");
 
         if (failedCount > 0) {
-            System.out.println("\n\nCardDeck appears to not be thread safe! Failed " + failedCount + " times!");
+            System.out.println("\n\nCardDeck appears to not be thread safe! Failed " + failedCount + " times!\n");
         } else {
-            System.out.println("\n\nCardDeck appears to be thread safe.");
+            System.out.println("\n\nCardDeck appears to be thread safe.\n");
         }
     }
 }

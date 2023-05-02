@@ -1,9 +1,6 @@
 public class ThreadSafeCardDeck extends CardDeck {
     @Override
     public synchronized String dealCard() {
-        // Various reasons why the code in the try{} block could fail, so
-        // we catch any exception and
-        // then carry on as if nothing had happened!
         String cardChoice = null;
 
         try {
@@ -18,7 +15,7 @@ public class ThreadSafeCardDeck extends CardDeck {
                 sequenceNumber++;
             }
         } catch (Exception e) {
-            // Don't do anything; pretend nothing happened!
+            e.printStackTrace();
         }
         return lastCardChoice;
     }
