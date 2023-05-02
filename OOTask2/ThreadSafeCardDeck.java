@@ -17,6 +17,7 @@ public class ThreadSafeCardDeck extends CardDeck {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return lastCardChoice;
     }
 }
