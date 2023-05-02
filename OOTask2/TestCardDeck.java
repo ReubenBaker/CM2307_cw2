@@ -69,7 +69,7 @@ public class TestCardDeck {
                 failedCount++;
             }
 
-            if ((i + 1) % (cycleCount / 100) == 0) {
+            if ((i + 1) % Math.max(cycleCount / 100, 1) == 0) {
                 System.out.print("\033[2K\r");
                 System.out.print((int) Math.round(((double) (i + 1) / cycleCount) * 100) + "%");
             }
