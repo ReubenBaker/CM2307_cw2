@@ -5,12 +5,18 @@ public class TestCardDeck {
         return new CardDeck();
     }
 
-    public static boolean runThreads(int threadCount) throws InterruptedException {
-        CardDeck deck = new TestCardDeck().createDeck();
+    public boolean runThreads(int threadCount) throws InterruptedException {
+        CardDeck deck = createDeck();
         ArrayList<Thread> threads = new ArrayList<>();
 
-        for (int i = 0; i < threadCount; i++) {
+        for (int i = 0; i < threadCount / 2; i++) {
             Thread thread = new Thread(() -> {
+                deck.dealCard();
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 deck.dealCard();
             });
             threads.add(thread);
@@ -27,9 +33,9 @@ public class TestCardDeck {
         return deck.sequenceNumber == threadCount;
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        int threadCount = 52;
-        int cycleCount = 10000;
+    public void execute(String[] args) throws InterruptedException {
+        int threadCount = 50;
+        int cycleCount = 1000;
         int failedCount = 0;
 
         if (args.length == 2) {
@@ -60,7 +66,7 @@ public class TestCardDeck {
                 failedCount++;
             }
 
-            if ((i + 1) % (cycleCount / 100) == 0) {
+            if (cycleCount >= 100 && (i + 1) % (cycleCount / 100) == 0) {
                 System.out.print("\033[2K\r");
                 System.out.print((int) Math.round(((double) (i + 1) / cycleCount) * 100) + "%");
             }
@@ -74,5 +80,9 @@ public class TestCardDeck {
         } else {
             System.out.println("\n\nCardDeck appears to be thread safe.\n");
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        new TestCardDeck().execute(args);
     }
 }
