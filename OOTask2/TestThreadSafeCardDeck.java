@@ -3,4 +3,8 @@ public class TestThreadSafeCardDeck extends TestCardDeck {
     protected CardDeck createDeck() {
         return new ThreadSafeCardDeck();
     }
+
+    public static void main(String[] args) throws InterruptedException {
+        new TestThreadSafeCardDeck().execute(args);
+    }
 }
