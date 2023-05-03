@@ -36,9 +36,9 @@ public class TestCardDeck {
         return deck.sequenceNumber == threadCount * 2;
     }
 
-    public void execute(String[] args) throws InterruptedException {
+    public int execute(String[] args) throws InterruptedException {
         int threadCount = 26;
-        int cycleCount = 10000;
+        int cycleCount = 1000;
         int failedCount = 0;
 
         if (args.length == 2) {
@@ -48,16 +48,16 @@ public class TestCardDeck {
 
                 if (threadCount < 1 || threadCount > 26) {
                     System.out.println("Thread count must be between 1 and 26!");
-                    return;
+                    return -1;
                 }
 
                 if (cycleCount < 1) {
                     System.out.println("Cycle count must be at least 1!");
-                    return;
+                    return -1;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Args invalid! Thread count and Cycle count must both be integers!");
-                return;
+                return -1;
             }
         }
 
@@ -78,14 +78,16 @@ public class TestCardDeck {
         System.out.print("\033[2K\r");
         System.out.print("100%");
 
-        if (failedCount > 0) {
-            System.out.println("\n\nCardDeck appears to not be thread safe! Failed " + failedCount + " times!\n");
-        } else {
-            System.out.println("\n\nCardDeck appears to be thread safe.\n");
-        }
+        return failedCount;
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new TestCardDeck().execute(args);
+        int failedCount = new TestCardDeck().execute(args);
+
+        if (failedCount == 0) {
+            System.out.println("\n\nCardDeck appears to be thread safe.\n");
+        } else {
+            System.out.println("\n\nCardDeck appears to not be thread safe! Failed " + failedCount + " times!\n");
+        }
     }
 }

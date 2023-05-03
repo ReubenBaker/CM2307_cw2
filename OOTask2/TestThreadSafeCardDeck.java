@@ -5,6 +5,13 @@ public class TestThreadSafeCardDeck extends TestCardDeck {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new TestThreadSafeCardDeck().execute(args);
+        int failedCount = new TestThreadSafeCardDeck().execute(args);
+
+        if (failedCount == 0) {
+            System.out.println("\n\nThreadSafeCardDeck appears to be thread safe.");
+        } else {
+            System.out
+                    .println("\n\nThreadSafeCardDeck appears to not be thread safe! Failed " + failedCount + " times!");
+        }
     }
 }
