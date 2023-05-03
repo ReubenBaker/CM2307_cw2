@@ -32,7 +32,6 @@ public class CardGame {
         }
 
         scanner.close();
-
         System.out.println("Cards chosen: " + cardsChosen);
         System.out.println("Remaining cards: " + deck);
     }

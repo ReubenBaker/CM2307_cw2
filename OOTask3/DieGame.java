@@ -2,13 +2,13 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class DieGame {
-    private HashSet<Integer> numbersRolled;
     private RandomInterface r;
+    private HashSet<Integer> numbersRolled;
     private final Scanner scanner;
 
     public DieGame(Scanner scanner) {
-        this.numbersRolled = new HashSet<Integer>();
         this.r = new LinearCongruentialGenerator();
+        this.numbersRolled = new HashSet<Integer>();
         this.scanner = scanner;
     }
 
@@ -26,13 +26,12 @@ public class DieGame {
                 e.printStackTrace();
             }
 
-            int dieRoll = (int) (r.next() * 6) + 1;
+            int dieRoll = (int) ((r.next() * 6) + 1);
             System.out.println("You rolled " + dieRoll);
             numbersRolled.add(Integer.valueOf(dieRoll));
         }
 
         scanner.close();
-
         System.out.println("Numbers rolled: " + numbersRolled);
     }
 
