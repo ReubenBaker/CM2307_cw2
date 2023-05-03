@@ -1,11 +1,11 @@
 public class DiningPhilosophers {
 
     public static void main(String[] args) throws Exception {
-        
-        final int problemSize=5;
+
+        final int problemSize = 5;
         Fork leftFork;
         Fork rightFork;
-        
+
         Philosopher[] philosophers = new Philosopher[problemSize];
         Fork[] forks = new Fork[problemSize];
 
@@ -17,8 +17,12 @@ public class DiningPhilosophers {
             leftFork = forks[i];
             rightFork = forks[(i + 1) % problemSize];
 
-            philosophers[i] = new Philosopher(leftFork, rightFork, i+1);
-            
+            if (i == 0) {
+                philosophers[i] = new Philosopher(rightFork, leftFork, i + 1);
+            } else {
+                philosophers[i] = new Philosopher(leftFork, rightFork, i + 1);
+            }
+
             Thread t = new Thread(philosophers[i]);
             t.start();
         }
