@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class CardGame {
+public class CardGame implements PlayableGame {
     private ThreadSafeCardDeck deck;
     private HashSet<String> cardsChosen;
     private final Scanner scanner;
@@ -33,7 +33,7 @@ public class CardGame {
 
         scanner.close();
         System.out.println("Cards chosen: " + cardsChosen);
-        System.out.println("Remaining cards: " + deck);
+        System.out.println("Remaining cards: " + deck.cardList);
     }
 
     private Boolean declareWinner() {

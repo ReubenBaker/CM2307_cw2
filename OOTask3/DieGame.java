@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class DieGame {
+public class DieGame implements PlayableGame {
     private RandomInterface r;
     private HashSet<Integer> numbersRolled;
     private final Scanner scanner;
