@@ -86,7 +86,7 @@ public class TestCardDeck {
 
         if (failedCount == 0) {
             System.out.println("\n\nCardDeck appears to be thread safe.\n");
-        } else {
+        } else if (failedCount > 0) {
             System.out.println("\n\nCardDeck appears to not be thread safe! Failed " + failedCount + " times!\n");
         }
     }

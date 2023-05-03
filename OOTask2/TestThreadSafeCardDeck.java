@@ -9,9 +9,8 @@ public class TestThreadSafeCardDeck extends TestCardDeck {
 
         if (failedCount == 0) {
             System.out.println("\n\nThreadSafeCardDeck appears to be thread safe.");
-        } else {
-            System.out
-                    .println("\n\nThreadSafeCardDeck appears to not be thread safe! Failed " + failedCount + " times!");
+        } else if (failedCount > 0) {
+            System.out.println("\n\nThreadSafeCardDeck appears to not be thread safe! Failed " + failedCount + " times!");
         }
     }
 }
