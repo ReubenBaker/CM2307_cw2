@@ -1,7 +1,7 @@
 /**
- * The Rabbit class represents a specific type of bird pet, namely a rabbit. It
- * extends the SmallMammal class and implements the abstract classOfAnimal
- * method by returning the name of the class as a String.
+ * The Rabbit class represents a specific type of small mammal pet, namely a
+ * rabbit. It extends the SmallMammal class and implements the abstract
+ * classOfAnimal method by returning the name of the class as a String.
  */
 public class Rabbit extends SmallMammal {
   /**
