@@ -12,8 +12,7 @@ public class Philosopher implements Runnable {
     private Fork leftFork;
     private Fork rightFork;
     private int philosopherNumber;
-    private static Lock forksLock = new ReentrantLock(); // A static Lock object used to ensure synchronized access to
-                                                         // forks
+    private static Lock forksLock = new ReentrantLock(); // A static Lock object used to ensure synchronized access to forks
 
     /**
      * Constructs a new Philosopher object with the given left and right forks and
