@@ -1,7 +1,7 @@
 /**
- * The Canary class represents a specific type of bird pet, namely a canary.
- * It extends the Bird class and implements the abstract classOfAnimal method
- * by returning the name of the class as a String.
+ * The Canary class represents a specific type of bird pet, namely a canary. It
+ * extends the Bird class and implements the abstract classOfAnimal method by
+ * returning the name of the class as a String.
  */
 public class Canary extends Bird {
   /**

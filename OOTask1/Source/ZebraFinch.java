@@ -1,8 +1,7 @@
 /**
  * The ZebraFinch class represents a specific type of bird pet, namely a zebra
- * finch.
- * It extends the Bird class and implements the abstract classOfAnimal method
- * by returning the name of the class as a String.
+ * finch. It extends the Bird class and implements the abstract classOfAnimal
+ * method by returning the name of the class as a String.
  */
 public class ZebraFinch extends Bird {
   /**

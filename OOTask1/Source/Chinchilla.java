@@ -1,8 +1,7 @@
 /**
  * The Chinchilla class represents a specific type of bird pet, namely a
- * chinchilla.
- * It extends the SmallMammal class and implements the abstract classOfAnimal
- * method by returning the name of the class as a String.
+ * chinchilla. It extends the SmallMammal class and implements the abstract
+ * classOfAnimal method by returning the name of the class as a String.
  */
 public class Chinchilla extends SmallMammal {
   /**
